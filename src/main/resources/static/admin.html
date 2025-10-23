@@ -2,10 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ✅ META VIEWPORT CRÍTICO - ESTO ES LO MÁS IMPORTANTE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>Panel de Administración - Robot Educativo</title>
     <link rel="stylesheet" href="css/styles.css" />
-
   </head>
   <body>
     <div class="container">
@@ -29,20 +29,12 @@
           <h3>Menú</h3>
           <ul class="sidebar-menu">
             <li>
-              <a
-                href="#dashboard"
-                class="menu-link active"
-                data-section="dashboard"
-              >
+              <a href="#dashboard" class="menu-link active" data-section="dashboard">
                 📊 Dashboard
               </a>
             </li>
             <li>
-              <a
-                href="#administradores"
-                class="menu-link"
-                data-section="administradores"
-              >
+              <a href="#administradores" class="menu-link" data-section="administradores">
                 👥 Administradores
               </a>
             </li>
@@ -248,11 +240,7 @@
             </div>
 
             <button type="submit" class="btn-primary">Guardar</button>
-            <button
-              type="button"
-              class="btn-secondary"
-              onclick="cerrarModalAdmin()"
-            >
+            <button type="button" class="btn-secondary" onclick="cerrarModalAdmin()">
               Cancelar
             </button>
           </form>
@@ -272,11 +260,7 @@
             </div>
 
             <button type="submit" class="btn-primary">Importar</button>
-            <button
-              type="button"
-              class="btn-secondary"
-              onclick="cerrarModalImportar()"
-            >
+            <button type="button" class="btn-secondary" onclick="cerrarModalImportar()">
               Cancelar
             </button>
           </form>

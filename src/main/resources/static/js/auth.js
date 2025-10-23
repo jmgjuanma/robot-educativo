@@ -35,8 +35,9 @@
  * Utilidades de Autenticación
  * Este archivo debe ser incluido en todas las páginas protegidas
  */
-
-const AUTH_API_URL = 'http://localhost:8080/api';
+//const API_BASE_URL = 'http://localhost:8080/api';
+//const AUTH_API_URL = 'http://52.15.106.18:8080/api';
+const AUTH_API_URL = 'http://ec2-52-15-106-18.us-east-2.compute.amazonaws.com:8080/api';
 
 /**
  * Obtiene el token del localStorage

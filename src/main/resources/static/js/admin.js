@@ -1,8 +1,9 @@
 /**
  * Configuración
  */
-const API_BASE_URL = 'http://localhost:8080/api';
-
+//const API_BASE_URL = 'http://localhost:8080/api';
+//const API_BASE_URL = 'http://52.15.106.18:8080/api';
+const API_BASE_URL = 'http://ec2-52-15-106-18.us-east-2.compute.amazonaws.com:8080/api';
 /**
  * Inicialización
  */
@@ -279,23 +280,6 @@ document.getElementById('formAdmin').addEventListener('submit', async (e) => {
     const email = document.getElementById('adminEmail').value;
     const password = document.getElementById('adminPassword').value;
 
-    // Validaciones del lado del cliente
-    if (!id && password.length < 6) {
-        alert('❌ Contraseña no válida\n\nLa contraseña debe tener al menos 6 caracteres.');
-        return;
-    }
-
-    if (username.length < 3) {
-        alert('❌ Username no válido\n\nEl username debe tener al menos 3 caracteres.');
-        return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('❌ Email no válido\n\nIngresa un email válido (ejemplo@dominio.com).');
-        return;
-    }
-
     try {
         const usernameActual = getUsername();
         let response;
@@ -323,26 +307,15 @@ document.getElementById('formAdmin').addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (data.success) {
-            alert(id ? '✅ Administrador actualizado exitosamente' : '✅ Administrador creado exitosamente');
+            alert(id ? 'Administrador actualizado' : 'Administrador creado exitosamente');
             cerrarModalAdmin();
             cargarAdministradores();
         } else {
-            // Mejorar mensajes de error
-            let mensaje = data.message;
-            
-            if (mensaje.includes('username ya existe') || mensaje.includes('Ya existe')) {
-                alert('❌ Error: El username ya está registrado\n\nPor favor elige otro username.');
-            } else if (mensaje.includes('email')) {
-                alert('❌ Error: El email ya está registrado\n\nPor favor usa otro email.');
-            } else if (mensaje.includes('Validation failed')) {
-                alert('❌ Error de validación\n\nVerifica que:\n• Username tenga al menos 3 caracteres\n• Contraseña tenga al menos 6 caracteres\n• Email sea válido');
-            } else {
-                alert('❌ Error: ' + mensaje);
-            }
+            alert('Error: ' + data.message);
         }
     } catch (error) {
         console.error('Error al guardar administrador:', error);
-        alert('❌ Error al guardar administrador\n\nVerifica tu conexión e inténtalo de nuevo.');
+        alert('Error al guardar administrador');
     }
 });
 

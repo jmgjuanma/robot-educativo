@@ -91,12 +91,6 @@
 			<version>0.12.3</version>
 			<scope>runtime</scope>
 		</dependency>
-
-		<!-- BCrypt ya viene con Spring Security, pero aseguramos -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>
