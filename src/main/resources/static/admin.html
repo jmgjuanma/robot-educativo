@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración - Robot Educativo</title>
+    <link rel="stylesheet" href="css/styles.css" />
+
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <h1>🔧 Panel de Administración</h1>
+        <p>Gestión del sistema Robot Educativo</p>
+      </header>
+
+      <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="user-info">
+            <div>
+              <strong class="user-nombre"></strong>
+              <br />
+              <small class="user-username"></small>
+            </div>
+          </div>
+
+          <h3>Menú</h3>
+          <ul class="sidebar-menu">
+            <li>
+              <a
+                href="#dashboard"
+                class="menu-link active"
+                data-section="dashboard"
+              >
+                📊 Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="#administradores"
+                class="menu-link"
+                data-section="administradores"
+              >
+                👥 Administradores
+              </a>
+            </li>
+            <li>
+              <a href="#bitacora" class="menu-link" data-section="bitacora">
+                📋 Bitácora
+              </a>
+            </li>
+            <li>
+              <a href="#pistas" class="menu-link" data-section="pistas">
+                🎮 Gestión de Pistas
+              </a>
+            </li>
+            <li>
+              <a href="configurar.html"> ⚙️ Configurar Pistas </a>
+            </li>
+            <li>
+              <a href="index.html"> 🏠 Volver al Juego </a>
+            </li>
+            <li>
+              <a href="#" id="logout-btn" style="color: #f44336">
+                🚪 Cerrar Sesión
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- Dashboard Section -->
+          <section id="dashboard-section" class="section active">
+            <h2>Dashboard General</h2>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h3 id="totalVisitas">0</h3>
+                <p>Total Visitas</p>
+              </div>
+              <div class="stat-card">
+                <h3 id="totalExitos">0</h3>
+                <p>Completaciones Exitosas</p>
+              </div>
+              <div class="stat-card">
+                <h3 id="totalFallos">0</h3>
+                <p>Completaciones Fallidas</p>
+              </div>
+              <div class="stat-card">
+                <h3 id="porcentajeExito">0%</h3>
+                <p>Tasa de Éxito</p>
+              </div>
+              <div class="stat-card">
+                <h3 id="totalPistas">0</h3>
+                <p>Pistas Activas</p>
+              </div>
+              <div class="stat-card">
+                <h3 id="totalAdmins">0</h3>
+                <p>Administradores</p>
+              </div>
+            </div>
+
+            <h3>Estadísticas por Pista</h3>
+            <div class="table-container">
+              <table id="tablaPistasStats">
+                <thead>
+                  <tr>
+                    <th>Pista</th>
+                    <th>Visitas</th>
+                    <th>Éxitos</th>
+                    <th>Fallos</th>
+                    <th>% Éxito</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="5">Cargando...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Administradores Section -->
+          <section id="administradores-section" class="section">
+            <h2>Gestión de Administradores</h2>
+
+            <button class="btn-primary" onclick="mostrarModalNuevoAdmin()">
+              ➕ Nuevo Administrador
+            </button>
+
+            <div class="table-container">
+              <table id="tablaAdministradores">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="6">Cargando...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Bitácora Section -->
+          <section id="bitacora-section" class="section">
+            <h2>Bitácora del Sistema</h2>
+
+            <div class="table-container">
+              <table id="tablaBitacora">
+                <thead>
+                  <tr>
+                    <th>Fecha/Hora</th>
+                    <th>Usuario</th>
+                    <th>Acción</th>
+                    <th>Descripción</th>
+                    <th>IP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="5">Cargando...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Pistas Section -->
+          <section id="pistas-section" class="section">
+            <h2>Gestión de Pistas</h2>
+
+            <div style="margin-bottom: 20px">
+              <button class="btn-primary" onclick="exportarTodasLasPistas()">
+                📤 Exportar Todas las Pistas
+              </button>
+              <button class="btn-primary" onclick="mostrarModalImportar()">
+                📥 Importar Pistas
+              </button>
+            </div>
+
+            <div class="table-container">
+              <table id="tablaPistas">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Creado Por</th>
+                    <th>Fecha Creación</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="6">Cargando...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>Universidad Mariano Gálvez - Desarrollo Web - Juan Manuel Marroquin</p>
+      </footer>
+    </div>
+
+    <!-- Modal para nuevo/editar administrador -->
+    <div id="modalAdmin" class="modal">
+      <div class="modal-content">
+        <div class="modal-form">
+          <h2 id="modalAdminTitulo">Nuevo Administrador</h2>
+          <form id="formAdmin">
+            <input type="hidden" id="adminId" />
+
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="adminUsername" required />
+            </div>
+
+            <div class="form-group">
+              <label>Nombre Completo</label>
+              <input type="text" id="adminNombre" required />
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="adminEmail" required />
+            </div>
+
+            <div class="form-group" id="passwordGroup">
+              <label>Contraseña</label>
+              <input type="password" id="adminPassword" required />
+            </div>
+
+            <button type="submit" class="btn-primary">Guardar</button>
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="cerrarModalAdmin()"
+            >
+              Cancelar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para importar pistas -->
+    <div id="modalImportar" class="modal">
+      <div class="modal-content">
+        <div class="modal-form">
+          <h2>Importar Pistas</h2>
+          <form id="formImportar">
+            <div class="form-group">
+              <label>Selecciona archivo JSON</label>
+              <input type="file" id="archivoImportar" accept=".json" required />
+            </div>
+
+            <button type="submit" class="btn-primary">Importar</button>
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="cerrarModalImportar()"
+            >
+              Cancelar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

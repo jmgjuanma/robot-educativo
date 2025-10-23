@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Educativo - Aprende a Programar</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🤖 Robot Educativo</h1>
+            <p>Aprende los conceptos básicos de programación</p>
+            <button id="btnConfigurar" class="btn-configurar">⚙️ Configurar pistas</button>
+            <button id="btnAdmin" class="btn-configurar" style="right: 240px; display: none;">
+                🔧 Panel Admin
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Área de la Pista -->
+            <div class="pista-container">
+                <h2>Pista: <span id="nombrePista">Cargando...</span></h2>
+                <div id="tablero" class="tablero">
+                    <!-- La cuadrícula se genera dinámicamente con JavaScript -->
+                </div>
+            </div>
+
+            <!-- Panel de Control -->
+            <div class="panel-control">
+                <h2>Panel de Control</h2>
+
+                <!-- Área de Movimientos Disponibles -->
+                <div class="movimientos-disponibles">
+                    <h3>Movimientos</h3>
+                    <div class="botones-movimientos">
+                        <button class="btn-movimiento" data-movimiento="adelante">
+                            <span class="icon">⬆️</span>
+                            <span>Adelante</span>
+                        </button>
+                        <button class="btn-movimiento" data-movimiento="girar-izquierda">
+                            <span class="icon">↩️</span>
+                            <span>Girar Izquierda</span>
+                        </button>
+                        <button class="btn-movimiento" data-movimiento="girar-derecha">
+                            <span class="icon">↪️</span>
+                            <span>Girar Derecha</span>
+                        </button>
+                        <button class="btn-movimiento" data-movimiento="bucle">
+                            <span class="icon">🔁</span>
+                            <span>Bucle</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lista de Movimientos Programados -->
+                <div class="movimientos-programados">
+                    <h3>Movimientos Programados</h3>
+                    <div id="listMovimientos" class="lista-movimientos">
+                        <p class="empty-message">No hay movimientos programados</p>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="botones-accion">
+                    <button id="btnEjecutar" class="btn-primary">▶️ Ejecutar</button>
+                    <button id="btnReiniciar" class="btn-secondary">🔄 Reiniciar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Resultado -->
+        <div id="modalResultado" class="modal">
+            <div class="modal-content">
+                <h2 id="modalTitulo">¡Misión Completada!</h2>
+                <p id="modalMensaje">Has completado la misión exitosamente</p>
+                <div id="modalIcono" class="modal-icono">🎉</div>
+                <button id="btnCerrarModal" class="btn-primary">Continuar</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Universidad Mariano Gálvez - Desarrollo Web - Juan Manuel Marroquin</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/robot.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

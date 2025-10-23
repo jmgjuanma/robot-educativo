@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Pistas - Robot Educativo</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>⚙️ Configuración de Pistas</h1>
+            <p>Crea y edita pistas para el juego</p>
+            <button id="btnAdmin" class="btn-configurar" style="right: 220px;">
+                🔧 Panel Admin
+            </button>
+            <button id="logout-btn" class="btn-configurar" style="right: 20px; background: #f44336;">
+                🚪 Cerrar Sesión
+            </button>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Instrucciones -->
+            <div class="instrucciones">
+                <h3>📝 Instrucciones</h3>
+                <p>1. Haz clic en las celdas para marcar el camino (verde)</p>
+                <p>2. Haz clic de nuevo para desmarcar</p>
+                <p>3. Guarda la pista con un nombre único</p>
+            </div>
+
+            <!-- Botones de Control -->
+            <div class="config-header">
+                <div class="config-botones">
+                    <button id="btnGuardar" class="btn-config btn-guardar">💾 Guardar</button>
+                    <button id="btnBorrar" class="btn-config btn-borrar">🗑️ Borrar</button>
+                    <button id="btnLimpiar" class="btn-config btn-borrar">🧹 Limpiar</button>
+                    <button id="btnVolver" class="btn-config btn-volver">⬅️ Volver al Juego</button>
+                </div>
+            </div>
+
+            <!-- Tablero Configurable -->
+            <div id="tablero" class="tablero">
+                <!-- La cuadrícula se genera dinámicamente -->
+            </div>
+
+            <!-- Lista de Pistas Existentes -->
+            <div class="lista-pistas">
+                <h3>Pistas Existentes</h3>
+                <div id="listaPistas">
+                    <p>Cargando pistas...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Universidad Mariano Gálvez - Desarrollo Web - Juan Manuel Marroquin</p>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/configurar.js"></script>
+</body>
+</html>
